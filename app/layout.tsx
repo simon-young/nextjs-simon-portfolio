@@ -1,24 +1,24 @@
 import "../global.css";
-import { Inter } from "@next/font/google";
+import { Inter, Roboto_Mono } from "@next/font/google";
 import LocalFont from "@next/font/local";
 import { Metadata } from "next";
 import { Analytics } from "./components/analytics";
 
 export const metadata: Metadata = {
   title: {
-    default: "chronark.com",
-    template: "%s | chronark.com",
+    default: "thesimonyoung",
+    template: "%s | thesimonyoung.com",
   },
-  description: "Co-founder of unkey.dev and founder of planetfall.io",
+  description: "Founder of End Hunt",
   openGraph: {
-    title: "chronark.com",
+    title: "theSimonYoung.com",
     description:
-      "Co-founder of unkey.dev and founder of planetfall.io",
-    url: "https://chronark.com",
-    siteName: "chronark.com",
+      "UX designer | Founder of End Hunt",
+    url: "https://theSimonYoung.com",
+    siteName: "theSimonYoung.com",
     images: [
       {
-        url: "https://chronark.com/og.png",
+        url: "https://theSimonYoung.com/og.png",
         width: 1920,
         height: 1080,
       },
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: "Chronark",
+    title: "Simon Young | UX designer",
     card: "summary_large_image",
   },
   icons: {
@@ -50,9 +50,15 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-const calSans = LocalFont({
-  src: "../public/fonts/CalSans-SemiBold.ttf",
-  variable: "--font-calsans",
+const displaySans = LocalFont({
+  src: "../public/fonts/test-manuka-condensed-black.woff2",
+  variable: "--font-display",
+});
+
+const mono = Roboto_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  weight: "500"
 });
 
 export default function RootLayout({
@@ -61,7 +67,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={[inter.variable, calSans.variable].join(" ")}>
+    <html lang="en" className={[inter.variable, displaySans.variable, mono.variable].join(" ")}>
       <head>
         <Analytics />
       </head>

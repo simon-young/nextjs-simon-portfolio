@@ -1,11 +1,13 @@
 import Link from "next/link";
-import React from "react";
+import React, { Suspense } from "react";
 import { allProjects } from "contentlayer/generated";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
 import { Article } from "./article";
+import { Folio } from "./folio";
 import { Redis } from "@upstash/redis";
 import { Eye } from "lucide-react";
+import Loading from "./loading";
 
 const redis = Redis.fromEnv();
 
@@ -20,7 +22,8 @@ export default async function ProjectsPage() {
     return acc;
   }, {} as Record<string, number>);
 
-  const featured = allProjects.find((project) => project.slug === "unkey")!;
+  const featured = allProjects.find((project) => project.slug === "frogbox")!;
+  console.log(featured);
   const top2 = allProjects.find((project) => project.slug === "planetfall")!;
   const top3 = allProjects.find((project) => project.slug === "highstorm")!;
   const sorted = allProjects
@@ -54,7 +57,17 @@ export default async function ProjectsPage() {
         <div className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-2 ">
           <Card>
             <Link href={`/projects/${featured.slug}`}>
-              <article className="relative w-full h-full p-4 md:p-8">
+              <article className="relative w-full h-full p-4 md:p-4">
+
+                
+                  <div className={`flex bg-zinc-800 h-[320px] mb-4 rounded-lg overflow-hidden`}>
+                  <Suspense fallback={<Loading />}>
+                    <img src={`${featured.image}`} className="w-full"/>
+                  </Suspense>
+                  </div>
+                
+                
+
                 <div className="flex items-center justify-between gap-2">
                   <div className="text-xs text-zinc-100">
                     {featured.date ? (
@@ -67,6 +80,7 @@ export default async function ProjectsPage() {
                       <span>SOON</span>
                     )}
                   </div>
+
                   <span className="flex items-center gap-1 text-xs text-zinc-500">
                     <Eye className="w-4 h-4" />{" "}
                     {Intl.NumberFormat("en-US", { notation: "compact" }).format(
@@ -77,14 +91,14 @@ export default async function ProjectsPage() {
 
                 <h2
                   id="featured-post"
-                  className="mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl font-display"
+                  className="mt-4 text-3xl text-zinc-100 group-hover:text-white sm:text-5xl font-display tracking-[.01em]"
                 >
                   {featured.title}
                 </h2>
                 <p className="mt-4 leading-8 duration-150 text-zinc-400 group-hover:text-zinc-300">
                   {featured.description}
                 </p>
-                <div className="absolute bottom-4 md:bottom-8">
+                <div className="pt-8">
                   <p className="hidden text-zinc-200 hover:text-zinc-50 lg:block">
                     Read more <span aria-hidden="true">&rarr;</span>
                   </p>
@@ -109,7 +123,7 @@ export default async function ProjectsPage() {
               .filter((_, i) => i % 3 === 0)
               .map((project) => (
                 <Card key={project.slug}>
-                  <Article project={project} views={views[project.slug] ?? 0} />
+                  <Folio project={project} views={views[project.slug] ?? 0} />
                 </Card>
               ))}
           </div>
@@ -118,7 +132,7 @@ export default async function ProjectsPage() {
               .filter((_, i) => i % 3 === 1)
               .map((project) => (
                 <Card key={project.slug}>
-                  <Article project={project} views={views[project.slug] ?? 0} />
+                  <Folio project={project} views={views[project.slug] ?? 0} />
                 </Card>
               ))}
           </div>
@@ -127,7 +141,7 @@ export default async function ProjectsPage() {
               .filter((_, i) => i % 3 === 2)
               .map((project) => (
                 <Card key={project.slug}>
-                  <Article project={project} views={views[project.slug] ?? 0} />
+                  <Folio project={project} views={views[project.slug] ?? 0} />
                 </Card>
               ))}
           </div>
