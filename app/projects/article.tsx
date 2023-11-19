@@ -1,6 +1,8 @@
 import type { Project } from "@/.contentlayer/generated";
 import Link from "next/link";
 import { Eye, View } from "lucide-react";
+import { Suspense } from "react";
+import Image from "next/image";
 
 type Props = {
 	project: Project;
@@ -8,9 +10,19 @@ type Props = {
 };
 
 export const Article: React.FC<Props> = ({ project, views }) => {
+	console.log('project', project);
+
 	return (
 		<Link href={`/projects/${project.slug}`}>
 			<article className="p-4 md:p-4">
+			{project.image && (
+				<Suspense fallback={<p>Loading...</p>}>
+					<div className={`relative flex bg-zinc-800 h-[320px] mb-4 rounded-lg overflow-hidden`}>
+						<Image src={`${project.image}`} alt="top-projects" priority fill className="relative object-cover" />
+					</div>
+                </Suspense>
+			)};
+
 				<div className="flex justify-between gap-2 items-center">
 					<span className="text-xs duration-1000 text-zinc-200 group-hover:text-white group-hover:border-zinc-200 drop-shadow-orange">
 						{project.date ? (

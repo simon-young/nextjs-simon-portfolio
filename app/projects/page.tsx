@@ -1,13 +1,15 @@
 import Link from "next/link";
 import React, { Suspense } from "react";
 import { allProjects } from "contentlayer/generated";
-import { Navigation } from "../components/nav";
+import { Navigation } from "../components/nav/nav";
 import { Card } from "../components/card";
 import { Article } from "./article";
 import { Folio } from "./folio";
 import { Redis } from "@upstash/redis";
 import { Eye } from "lucide-react";
 import Loading from "./loading";
+import Image from 'next/image';
+import feature_image from '../../public/img/smiley-white.gif';
 
 const redis = Redis.fromEnv();
 
@@ -52,19 +54,21 @@ export default async function ProjectsPage() {
             Some of the projects are from work and some are on my own time.
           </p>
         </div>
+
         <div className="w-full h-px bg-zinc-800" />
 
         <div className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-2 ">
+
+          {/* Featured Project */}
           <Card>
             <Link href={`/projects/${featured.slug}`}>
               <article className="relative w-full h-full p-4 md:p-4">
 
-                
-                  <div className={`flex bg-zinc-800 h-[320px] mb-4 rounded-lg overflow-hidden`}>
-                  <Suspense fallback={<Loading />}>
-                    <img src={`${featured.image}`} className="w-full"/>
-                  </Suspense>
+                <Suspense fallback={<p>Loading...</p>}>
+                  <div className={`relative flex bg-zinc-800 h-[320px] mb-4 rounded-lg overflow-hidden`}>
+                    <Image src={`${featured.image}`} alt="featured-image" priority fill className="relative object-cover" />
                   </div>
+                </Suspense>
                 
                 
 
@@ -106,15 +110,17 @@ export default async function ProjectsPage() {
               </article>
             </Link>
           </Card>
-
+          
+          {/* Top Projects */}
           <div className="flex flex-col w-full gap-8 mx-auto border-t border-gray-900/10 lg:mx-0 lg:border-t-0 ">
             {[top2, top3].map((project) => (
               <Card key={project.slug}>
-                <Article project={project} views={views[project.slug] ?? 0} />
+                <Article project={project} views={views[project.slug] ?? 0 } />
               </Card>
             ))}
           </div>
         </div>
+
         <div className="hidden w-full h-px md:block bg-zinc-800" />
 
         <div className="grid grid-cols-1 gap-4 mx-auto lg:mx-0 md:grid-cols-3">

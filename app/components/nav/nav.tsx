@@ -1,7 +1,7 @@
 "use client";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
-import React, { useEffect, useRef, useState } from "react";
+import React, { Children, useEffect, useRef, useState } from "react";
 
 export const Navigation: React.FC = () => {
 	const ref = useRef<HTMLElement>(null);
@@ -17,10 +17,21 @@ export const Navigation: React.FC = () => {
 		return () => observer.disconnect();
 	}, []);
 
+	function NavLink({ link, children }: { link: string, children: string }) {
+		return (
+			<Link
+                href={link}
+                className="text-xl font-mono italic uppercase duration-200 p-4 bg-gradient-to-b from-[#c72872] from-[20%] to-[#F470AE] hover:text-zinc-300 text-transparent underline underline-offset-4 bg-clip-text decoration-[#F470AE] hover:decoration-white"
+			>
+				{children}
+			</Link>
+		);
+	}
+
 	return (
 		<header ref={ref}>
 			<div
-				className={`fixed inset-x-0 top-0 z-50 backdrop-blur  duration-200 border-b  ${
+				className={`fixed inset-x-0 top-0 z-50 backdrop-blur  duration-200 border-b bg-[rgba(0,0,0,0.04)]  ${
 					isIntersecting
 						? "bg-zinc-900/0 border-transparent"
 						: "bg-zinc-900/500  border-zinc-800 "
@@ -28,26 +39,11 @@ export const Navigation: React.FC = () => {
 			>
 				<div className="container flex flex-row-reverse items-center justify-between p-6 mx-auto">
 					<div className="flex justify-between gap-8">
-						<Link
-							href="/projects"
-							className="font-mono italic underline duration-200 text-xl hover:text-zinc-100 bg-gradient-to-b from-pink-900 from-20% via-pink-500 via-80% to-indigo-400 text-transparent bg-clip-text"
-						>
-							Projects
-						</Link>
+						
+						<NavLink link={'projects'}>Projects</NavLink>
+						<NavLink link={'case-studies'}>UX case studies</NavLink>
+						<NavLink link={'contact'}>Contact</NavLink>
 
-						<Link
-							href="/case-studies"
-							className="font-mono underline italic duration-200 text-xl hover:text-zinc-100 bg-gradient-to-b from-pink-900 from-20% via-pink-500 via-80% to-indigo-400 text-transparent bg-clip-text"
-						>
-							UX Case Studies
-						</Link>
-
-						<Link
-							href="/contact"
-							className="font-mono italic duration-200 text-xl hover:text-zinc-100 bg-gradient-to-b from-pink-900 from-20% via-pink-500 via-80% to-indigo-400 text-transparent bg-clip-text"
-						>
-							Contact
-						</Link>
 					</div>
 
 					<Link
