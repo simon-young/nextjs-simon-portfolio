@@ -1,8 +1,8 @@
 import Link from "next/link";
 
 const navigation = [
-    { name: "Projects", href: "/projects" },
     { name: "UX Case Studies", href: "/case-studies" },
+    { name: "Work", href: "/work" },
     { name: "Contact", href: "/contact" },
 ];
 

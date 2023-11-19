@@ -1,34 +1,29 @@
-import type { Project } from "@/.contentlayer/generated";
+import type { Cases } from "@/.contentlayer/generated";
 import Link from "next/link";
 import { Eye, View } from "lucide-react";
-import { Suspense } from "react";
-import Image from "next/image";
 
 type Props = {
-	project: Project;
+	cases: Cases;
 	views: number;
 };
 
-export const Article: React.FC<Props> = ({ project, views }) => {
-	console.log('project', project);
-
+export const Folio: React.FC<Props> = ({ cases, views }) => {
 	return (
-		<Link href={`/projects/${project.slug}`}>
+		<Link href={`/case-studies/${cases.slug}`}>
 			<article className="p-4 md:p-4">
-			{project.image && (
-				<Suspense fallback={<p>Loading...</p>}>
-					<div className={`relative flex bg-zinc-800 h-[320px] mb-4 rounded-lg overflow-hidden`}>
-						<Image src={`${project.image}`} alt="top-projects" priority fill className="relative object-cover" />
-					</div>
-                </Suspense>
-			)};
+
+				<div className={`flex bg-zinc-800 h-[320px] mb-4 rounded-lg overflow-hidden`}>
+                  	{ cases.image &&
+						<img src={`${cases.image}`} className="w-full"/>
+					}
+                </div>
 
 				<div className="flex justify-between gap-2 items-center">
 					<span className="text-xs duration-1000 text-zinc-200 group-hover:text-white group-hover:border-zinc-200 drop-shadow-orange">
-						{project.date ? (
-							<time dateTime={new Date(project.date).toISOString()}>
+						{cases.date ? (
+							<time dateTime={new Date(cases.date).toISOString()}>
 								{Intl.DateTimeFormat(undefined, { dateStyle: "medium" }).format(
-									new Date(project.date),
+									new Date(cases.date),
 								)}
 							</time>
 						) : (
@@ -41,11 +36,11 @@ export const Article: React.FC<Props> = ({ project, views }) => {
 					</span>
 				</div>
 				<h2 className="z-20 text-xl font-medium duration-1000 lg:text-5xl text-zinc-200 group-hover:text-white font-display tracking-[.01em]">
-					{project.title}
+					{cases.title}
 				</h2>
-				<p className="z-20 mt-4 text-sm  duration-1000 text-zinc-400 group-hover:text-zinc-200">
-					{project.description}
-				</p>
+				{/* <p className="z-20 mt-4 text-sm  duration-1000 text-zinc-400 group-hover:text-zinc-200">
+					{cases.description}
+				</p> */}
 			</article>
 		</Link>
 	);

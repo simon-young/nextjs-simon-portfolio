@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React, { Suspense } from "react";
-import { allProjects } from "contentlayer/generated";
+import { allCases } from "contentlayer/generated";
 import { Navigation } from "../components/nav/nav";
 import { Card } from "../components/card";
 import { Article } from "./article";
@@ -14,27 +14,27 @@ import feature_image from '../../public/img/smiley-white.gif';
 const redis = Redis.fromEnv();
 
 export const revalidate = 60;
-export default async function ProjectsPage() {
+export default async function CasesPage() {
   const views = (
     await redis.mget<number[]>(
-      ...allProjects.map((p) => ["pageviews", "projects", p.slug].join(":")),
+      ...allCases.map((p) => ["pageviews", "cases", p.slug].join(":")),
     )
   ).reduce((acc, v, i) => {
-    acc[allProjects[i].slug] = v ?? 0;
+    acc[allCases[i].slug] = v ?? 0;
     return acc;
   }, {} as Record<string, number>);
 
-  const featured = allProjects.find((project) => project.slug === "frogbox")!;
+  const featured = allCases.find((cases) => cases.slug === "frogbox")!;
   console.log(featured);
-  const top2 = allProjects.find((project) => project.slug === "planetfall")!;
-  const top3 = allProjects.find((project) => project.slug === "highstorm")!;
-  const sorted = allProjects
+  const top2 = allCases.find((cases) => cases.slug === "cplt20")!;
+  const top3 = allCases.find((cases) => cases.slug === "chronark.com")!;
+  const sorted = allCases
     .filter((p) => p.published)
     .filter(
-      (project) =>
-        project.slug !== featured.slug &&
-        project.slug !== top2.slug &&
-        project.slug !== top3.slug,
+      (cases) =>
+        cases.slug !== featured.slug &&
+        cases.slug !== top2.slug &&
+        cases.slug !== top3.slug,
     )
     .sort(
       (a, b) =>
@@ -45,13 +45,13 @@ export default async function ProjectsPage() {
   return (
     <div className="relative pb-16">
       <Navigation />
-      <div className="px-6 pt-20 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
+      <div className="px-6 mt-12 pt-20 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32 md:mt-2">
         <div className="max-w-2xl mx-auto lg:mx-0">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
-            Projects
+            UX Case Studies
           </h2>
           <p className="mt-4 text-zinc-400">
-            Some of the projects are from work and some are on my own time.
+            Some of the cases are from work and some are on my own time.
           </p>
         </div>
 
@@ -59,9 +59,9 @@ export default async function ProjectsPage() {
 
         <div className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-2 ">
 
-          {/* Featured Project */}
+          {/* Featured case */}
           <Card>
-            <Link href={`/projects/${featured.slug}`}>
+            <Link href={`/case-studies/${featured.slug}`}>
               <article className="relative w-full h-full p-4 md:p-4">
 
                 <Suspense fallback={<p>Loading...</p>}>
@@ -111,47 +111,16 @@ export default async function ProjectsPage() {
             </Link>
           </Card>
           
-          {/* Top Projects */}
+          {/* Top cases */}
           <div className="flex flex-col w-full gap-8 mx-auto border-t border-gray-900/10 lg:mx-0 lg:border-t-0 ">
-            {[top2, top3].map((project) => (
-              <Card key={project.slug}>
-                <Article project={project} views={views[project.slug] ?? 0 } />
+            {[top2, top3].map((cases) => (
+              <Card key={cases.slug}>
+                <Article cases={cases} views={views[cases.slug] ?? 0 } />
               </Card>
             ))}
           </div>
         </div>
 
-        <div className="hidden w-full h-px md:block bg-zinc-800" />
-
-        <div className="grid grid-cols-1 gap-4 mx-auto lg:mx-0 md:grid-cols-3">
-          <div className="grid grid-cols-1 gap-4">
-            {sorted
-              .filter((_, i) => i % 3 === 0)
-              .map((project) => (
-                <Card key={project.slug}>
-                  <Folio project={project} views={views[project.slug] ?? 0} />
-                </Card>
-              ))}
-          </div>
-          <div className="grid grid-cols-1 gap-4">
-            {sorted
-              .filter((_, i) => i % 3 === 1)
-              .map((project) => (
-                <Card key={project.slug}>
-                  <Folio project={project} views={views[project.slug] ?? 0} />
-                </Card>
-              ))}
-          </div>
-          <div className="grid grid-cols-1 gap-4">
-            {sorted
-              .filter((_, i) => i % 3 === 2)
-              .map((project) => (
-                <Card key={project.slug}>
-                  <Folio project={project} views={views[project.slug] ?? 0} />
-                </Card>
-              ))}
-          </div>
-        </div>
       </div>
     </div>
   );

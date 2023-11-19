@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { allProjects } from "contentlayer/generated";
+import { allWorks } from "contentlayer/generated";
 import { Mdx } from "@/app/components/mdx";
 import { Header } from "./header";
 import "./mdx.css";
@@ -17,7 +17,7 @@ type Props = {
 const redis = Redis.fromEnv();
 
 export async function generateStaticParams(): Promise<Props["params"][]> {
-  return allProjects
+  return allWorks
     .filter((p) => p.published)
     .map((p) => ({
       slug: p.slug,
@@ -26,7 +26,7 @@ export async function generateStaticParams(): Promise<Props["params"][]> {
 
 export default async function PostPage({ params }: Props) {
   const slug = params?.slug;
-  const project = allProjects.find((project) => project.slug === slug);
+  const project = allWorks.find((project) => project.slug === slug);
 
   if (!project) {
     notFound();
