@@ -1,8 +1,8 @@
 import Link from "next/link";
 import React, { Suspense } from "react";
 import { allCases } from "contentlayer/generated";
-import { Navigation } from "../components/nav/nav";
-import { Card } from "../components/card";
+import { Navigation } from "../../components/nav/nav";
+import { Card } from "../../components/card";
 import { Article } from "./article";
 import { Folio } from "./folio";
 import { Redis } from "@upstash/redis";
@@ -43,9 +43,7 @@ export default async function CasesPage() {
     );
 
   return (
-    <div className="relative pb-16">
-      <Navigation />
-      <div className="px-6 mt-12 pt-20 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32 md:mt-2">
+      <div className="px-6 mt-12 pt-20 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32 md:mt-2 animate-fade-in-quick">
         <div className="max-w-2xl mx-auto lg:mx-0">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
             UX Case Studies
@@ -122,6 +120,5 @@ export default async function CasesPage() {
         </div>
 
       </div>
-    </div>
   );
 }

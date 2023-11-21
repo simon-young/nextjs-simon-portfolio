@@ -1,9 +1,9 @@
 import Link from "next/link";
 
 const navigation = [
-    { name: "UX Case Studies", href: "/case-studies" },
-    { name: "Work", href: "/work" },
-    { name: "Contact", href: "/contact" },
+    { name: "UX Case Studies", href: "folio/case-studies" },
+    { name: "Work", href: "folio/work" },
+    { name: "Contact", href: "folio/contact" },
 ];
 
 export default function NavMenu() {

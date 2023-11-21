@@ -42,6 +42,8 @@ module.exports = {
 				title: "title 3s ease-out forwards",
 				"fade-left": "fade-left 3s ease-in-out forwards",
 				"fade-right": "fade-right 3s ease-in-out forwards",
+				"fade-in-quick": "fade-in-quick 0.3s ease-in-out forwards",
+				"nav-marker": "nav-marker 0.3s ease-in-out forwards",
 			},
 			keyframes: {
 				"fade-in": {
@@ -53,6 +55,16 @@ module.exports = {
 					},
 					"100%": {
 						opacity: "100%",
+					},
+				},
+				"fade-in-quick": {
+					"0%": {
+						opacity: "0%",
+						transform: "translateY(12px)"
+					},
+					"100%": {
+						opacity: "100%",
+						transform: "translateY(0%)"
 					},
 				},
 				"fade-left": {
@@ -99,6 +111,17 @@ module.exports = {
 
 					"100%": {
 						"line-height": "100%",
+						opacity: "100%",
+					},
+				},
+				"nav-marker": {
+					"0%": {
+						transform: "translateX(-100%)",
+						opacity: "0%",
+					},
+
+					"100%": {
+						transform: "translateX(0%)",
 						opacity: "100%",
 					},
 				},
