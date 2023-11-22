@@ -46,13 +46,13 @@ export const Header: React.FC<Props> = ({ project, views }) => {
 			className="relative isolate overflow-hidden bg-gradient-to-tl from-black via-zinc-900 to-black"
 		>
 			<div
-				className={`fixed inset-x-0 top-0 z-50 backdrop-blur lg:backdrop-blur-none duration-200 border-b lg:bg-transparent ${
+				className={`relative inset-x-0 top-0 z-50 lg:backdrop-blur-none duration-200 border-b lg:bg-transparent pt-16 ${
 					isIntersecting
 						? "bg-zinc-900/0 border-transparent"
 						: "bg-white/10  border-zinc-200 lg:border-transparent"
 				}`}
 			>
-				<div className="container flex flex-row-reverse items-center justify-between p-6 mx-auto">
+				<div className="container flex flex-row-reverse items-center justify-center p-8 mx-auto">
 					<div className="flex justify-between gap-8">
 						<span
 							title="View counter for this page"
@@ -87,8 +87,8 @@ export const Header: React.FC<Props> = ({ project, views }) => {
 						</Link>
 					</div>
 
-					<Link
-						href="/case-studies"
+					{/* <Link
+						href="/folio/case-studies"
 						className={`duration-200 hover:font-medium ${
 							isIntersecting
 								? " text-zinc-400 hover:text-zinc-100"
@@ -96,10 +96,10 @@ export const Header: React.FC<Props> = ({ project, views }) => {
 						} `}
 					>
 						<ArrowLeft className="w-6 h-6 " />
-					</Link>
+					</Link> */}
 				</div>
 			</div>
-			<div className="container mx-auto relative isolate overflow-hidden  py-24 sm:py-32">
+			<div className="container mx-auto relative isolate overflow-hidden  py-12 sm:py-16">
 				<div className="mx-auto max-w-7xl px-6 lg:px-8 text-center flex flex-col items-center">
 					<div className="mx-auto max-w-2xl lg:mx-0">
 						<h1 className="text-4xl text-white sm:text-6xl font-display">

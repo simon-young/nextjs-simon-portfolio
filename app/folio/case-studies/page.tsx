@@ -59,7 +59,7 @@ export default async function CasesPage() {
 
           {/* Featured case */}
           <Card>
-            <Link href={`/case-studies/${featured.slug}`}>
+            <Link href={`/folio/case-studies/${featured.slug}`}>
               <article className="relative w-full h-full p-4 md:p-4">
 
                 <Suspense fallback={<p>Loading...</p>}>

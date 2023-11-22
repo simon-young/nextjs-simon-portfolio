@@ -9,7 +9,7 @@ type Props = {
 
 export const Folio: React.FC<Props> = ({ work, views }) => {
 	return (
-		<Link href={`/work/${work.slug}`}>
+		<Link href={`/folio/work/${work.slug}`}>
 			<article className="p-4 md:p-4">
 
 				<div className={`flex bg-zinc-800 h-[320px] mb-4 rounded-lg overflow-hidden`}>
