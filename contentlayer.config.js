@@ -78,6 +78,9 @@ export const CaseStudy = defineDocumentType(() => ({
 		image: {
 			type: "string",
 		},
+		video: {
+			type: "string",
+		}
 	},
 	computedFields,
 }));

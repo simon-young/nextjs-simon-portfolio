@@ -7,9 +7,7 @@ import { Article } from "./article";
 import { Folio } from "./folio";
 import { Redis } from "@upstash/redis";
 import { Eye } from "lucide-react";
-import Loading from "./loading";
 import Image from 'next/image';
-import feature_image from '../../public/img/smiley-white.gif';
 
 const redis = Redis.fromEnv();
 
