@@ -14,9 +14,6 @@ overrides:
   '@opentelemetry/semantic-conventions': 1.13.0
 
 dependencies:
-  '@next/font':
-    specifier: ^13.5.4
-    version: 13.5.4
   '@next/mdx':
     specifier: ^13.5.4
     version: 13.5.4
@@ -633,10 +630,6 @@ packages:
 
   /@next/env@14.0.3:
     resolution: {integrity: sha512-7xRqh9nMvP5xrW4/+L0jgRRX+HoNRGnfJpD+5Wq6/13j3dsdzxO3BCXn7D3hMqsDb+vjZnJq+vI7+EtgrYZTeA==}
-    dev: false
-
-  /@next/font@13.5.4:
-    resolution: {integrity: sha512-rOMki1/9BP9N93RZABiiF0EidMGgyCvNVSKvLLAnMkVh/IYk4Z827+NRuxCyRQCeT3vv/AeCiP5SFPAP10SPrQ==}
     dev: false
 
   /@next/mdx@13.5.4:

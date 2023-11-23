@@ -15,9 +15,14 @@ export const Article: React.FC<Props> = ({ cases, views }) => {
 			<article className="p-4 md:p-4">
 			{cases.image && (
 				<Suspense fallback={<p>Loading...</p>}>
-					<div className={`relative flex bg-zinc-800 h-[320px] mb-4 rounded-lg overflow-hidden`}>
-						
+					<div className={`relative flex bg-zinc-800 h-[auto] mb-4 rounded-lg overflow-hidden`}>
+						{ cases.video ?
+						<video autoPlay loop>
+							<source src={cases.video} type="video/webm" />
+						</video>
+						:
 						<Image src={`${cases.image}`} alt="top-cases" priority fill className="relative object-cover" />
+						}
 					</div>
                 </Suspense>
 			)};
