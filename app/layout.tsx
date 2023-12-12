@@ -51,7 +51,7 @@ const inter = Inter({
 });
 
 const displaySans = LocalFont({
-  src: "../public/fonts/test-manuka-condensed-black.woff2",
+  src: "../public/fonts/manuka-condensed-black.woff2",
   variable: "--font-display",
 });
 

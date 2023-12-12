@@ -2,12 +2,13 @@ import Link from "next/link";
 import React from "react";
 import Particles from "./components/particles";
 import NavMenu from "./components/nav/navigation";
+import Image from "next/image";
 
 export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black">
 
-      <nav className="my-16 animate-fade-in">
+      <nav className="my-16 animate-fade-in z-40">
         <ul className="flex items-center justify-center gap-4">
           <NavMenu />
         </ul>
@@ -18,6 +19,8 @@ export default function Home() {
         className="absolute inset-0 -z-10 animate-fade-in"
         quantity={1000}
       />
+
+      <Image src='/img/halo.svg' alt='background' width='992' height='992' className="absolute z-0 opacity-0 animate-fade-in-scale" />
 
       <h1 className="z-10 text-9xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-9xl md:text-[20em] whitespace-nowrap bg-clip-text">
         SIMON YOUNG

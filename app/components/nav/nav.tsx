@@ -46,7 +46,7 @@ export const Navigation: React.FC = () => {
 				<div className="relative">
 					<Link
 						href={link}
-						className={`text-sm font-mono italic uppercase duration-200 p-4 bg-gradient-to-b from-[#c72872] from-[20%] to-[#F470AE] hover:text-zinc-300 text-transparent underline underline-offset-4 bg-clip-text decoration-[#F470AE] hover:decoration-white md:text-xl ${pathname === (link) && "before:content-['👉'] before:text-white before:underline before:decoration-transparent before:absolute before:left-[-12px] before:animate-nav-marker sm:before:left-[-4px] md:before:left-[-12px]"} `}
+						className={`text-sm font-mono italic uppercase duration-200 p-4 bg-gradient-to-b from-[#c72872] from-[20%] to-[#F470AE] hover:text-zinc-300 text-transparent bg-clip-text decoration-[#F470AE] hover:decoration-white md:text-xl ${pathname === (link) && "before:content-['👉'] before:text-white before:underline before:decoration-transparent before:absolute before:left-[-12px] before:animate-nav-marker sm:before:left-[-4px] md:before:left-[-12px]"} `}
 					>
 						{children}
 					</Link>
@@ -57,9 +57,9 @@ export const Navigation: React.FC = () => {
 	return (
 		<header>
 			<div
-				className={`fixed inset-x-0 top-0 z-50 backdrop-blur  duration-200 border-b bg-[rgba(0,0,0,0.72)] bg-zinc-900/0 border-transparent`}
+				className={`fixed inset-x-0 top-0 z-50 backdrop-blur  duration-200 border-b bg-zinc-900/80 border-white/10`}
 			>
-				<div className="container flex flex-row-reverse items-center justify-between p-2 mx-auto md:p-6">
+				<div className="container flex flex-row-reverse items-center justify-between p-2 mx-auto md:p-6 max-w-7xl">
 					<div className="flex justify-between gap-2 sm:gap-4 md:gap-8">
 						
 						<NavLink link={'/folio/case-studies'}>UX case studies</NavLink>

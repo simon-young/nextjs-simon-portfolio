@@ -44,6 +44,7 @@ module.exports = {
 				"fade-right": "fade-right 3s ease-in-out forwards",
 				"fade-in-quick": "fade-in-quick 0.3s ease-in-out forwards",
 				"nav-marker": "nav-marker 0.3s ease-in-out forwards",
+				"fade-in-scale": "2.5s fade-in-scale 1s ease-in-out forwards",
 			},
 			keyframes: {
 				"fade-in": {
@@ -119,10 +120,19 @@ module.exports = {
 						transform: "translateX(-100%)",
 						opacity: "0%",
 					},
-
 					"100%": {
 						transform: "translateX(0%)",
 						opacity: "100%",
+					},
+				},
+				"fade-in-scale": {
+					"0%": {
+						opacity: "0%",
+						transform: "scale(0)"
+					},
+					"100%": {
+						opacity: "100%",
+						transform: "scale(1)"
 					},
 				},
 			},

@@ -45,6 +45,9 @@ export const Work = defineDocumentType(() => ({
 		image: {
 			type: "string",
 		},
+		video: {
+			type: "string",
+		}
 	},
 	computedFields,
 }));

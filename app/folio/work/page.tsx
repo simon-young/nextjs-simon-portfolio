@@ -24,17 +24,17 @@ export default async function WorksPage() {
     return acc;
   }, {} as Record<string, number>);
 
-  const featured = allWorks.find((work) => work.slug === "frogbox")!;
-  const top2 = allWorks.find((work) => work.slug === "chronark.com")!;
-  const top3 = allWorks.find((work) => work.slug === "highstorm")!;
+  // const featured = allWorks.find((work) => work.slug === "frogbox")!;
+  // const top2 = allWorks.find((work) => work.slug === "chronark.com")!;
+  // const top3 = allWorks.find((work) => work.slug === "highstorm")!;
   const sorted = allWorks
     .filter((p) => p.published)
-    .filter(
-      (work) =>
-        work.slug !== featured.slug &&
-        work.slug !== top2.slug &&
-        work.slug !== top3.slug,
-    )
+    // .filter(
+    //   (work) =>
+    //     work.slug !== featured.slug &&
+    //     work.slug !== top2.slug &&
+    //     work.slug !== top3.slug,
+    // )
     .sort(
       (a, b) =>
         new Date(b.date ?? Number.POSITIVE_INFINITY).getTime() -
@@ -48,7 +48,7 @@ export default async function WorksPage() {
             Work
           </h2>
           <p className="mt-4 text-zinc-400">
-            Some of the projects are from work and some are on my own time.
+            Some of the projects are from my employment with Sportradar, BurnsRED and others from my own businesses.
           </p>
         </div>
 
