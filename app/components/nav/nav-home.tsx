@@ -8,9 +8,15 @@ import Image from "next/image";
 import MenuIcon from "../../../public/img/bars-staggered.svg";
 import CloseIcon from "../../../public/img/xmark.svg";
 
-export const Navigation: React.FC = () => {
+const navigation = [
+    { name: "UX Case Studies", href: "folio/UX-case-studies" },
+    { name: "Work", href: "folio/work" },
+    { name: "Contact", href: "folio/contact" },
+];
 
-	const [ containerRef, isVisible ] = useElementOnScreen({
+export default function NavMenuHome() {
+
+    const [ containerRef, isVisible ] = useElementOnScreen({
 		root: null,
 		rootMargin: "0px",
 		threshold: 1.0
@@ -65,10 +71,7 @@ export const Navigation: React.FC = () => {
 		setIsOpen(!isOpen);
 	}
 
-	
-
-
-	const NavLink = ({ link, children }: { link: string, children: string }) => {
+    const NavLink = ({ link, children }: { link: string, children: string }) => {
 
 		return (
 				<div className="relative">
@@ -83,8 +86,8 @@ export const Navigation: React.FC = () => {
 		);
 	};
 
-	return (
-		<header>
+    return(
+            <header>
 			<div
 				className={`fixed inset-x-0 top-0 z-50 backdrop-blur  duration-200 border-b bg-zinc-900/80 border-white/10`}
 			>
@@ -124,16 +127,10 @@ export const Navigation: React.FC = () => {
 					</div>
 
 					<div>
-						<button
-							onClick={handleClick}
-							className="duration-200 text-zinc-300 hover:text-zinc-100 flex gap-2"
-						>
-							<ArrowLeft className="w-6 h-6 " />
-							<p className="text-zinc-200">{arrowNavName}</p>
-						</button>
+						<Link href="/" className="text-white font-display text-4xl">SY</Link>
 					</div>
 				</div>
 			</div>
 		</header>
-	);
-};
+    );
+}

@@ -6,14 +6,14 @@ const navigation = [
     { name: "Contact", href: "folio/contact" },
 ];
 
-export default function NavMenu() {
+export default function NavMenuDesktop() {
 
     return(
         <>
-            {navigation.map((item) => (
+            {navigation.map((item, index) => (
 
                 <Link
-                key={item.href}
+                key={index}
                 href={item.href}
                 className="text-xl font-mono italic uppercase duration-200 p-4 bg-gradient-to-b from-[#c72872] from-[20%] to-[#F470AE] hover:text-zinc-300 text-transparent bg-clip-text"
                 >

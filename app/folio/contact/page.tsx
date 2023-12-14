@@ -28,9 +28,9 @@ const socials = [
 export default function Example() {
 	return (
 			<div className="container flex items-center justify-center min-h-screen px-4 mx-auto animate-fade-in-quick">
-				<div className="grid w-full grid-cols-1 gap-8 mx-auto mt-32 sm:mt-0 sm:grid-cols-3 lg:gap-16">
-					{socials.map((s) => (
-						<Card>
+				<div className="grid w-full grid-cols-1 gap-8 mx-auto mt-32 lg:grid-cols-3 lg:gap-16">
+					{socials.map((s, index) => (
+						<Card key={index}>
 							<Link
 								href={s.href}
 								target="_blank"
@@ -44,7 +44,7 @@ export default function Example() {
 									{s.icon}
 								</span>{" "}
 								<div className="z-10 flex flex-col items-center">
-									<span className="lg:text-6xl duration-150 xl:text-6xl text-zinc-200 group-hover:text-white font-display">
+									<span className="text-5xl lg:text-5xl duration-150 xl:text-6xl text-zinc-200 group-hover:text-white font-display">
 										{s.handle}
 									</span>
 									<span className="mt-4 text-sm text-center duration-1000 text-zinc-400 group-hover:text-zinc-200">

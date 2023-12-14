@@ -60,7 +60,7 @@ export default async function CasesPage() {
           {/* Featured case */}
           <div className="lg:col-span-2">
             <Card>
-              <Link href={`/folio/case-studies/${featured.slug}`}>
+              <Link href={`/folio/UX-case-studies/${featured.slug}`}>
                 <article className="relative w-full h-full p-4 md:p-4">
 
                   <Suspense fallback={<p>Loading...</p>}>

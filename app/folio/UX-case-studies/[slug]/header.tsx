@@ -87,16 +87,7 @@ export const Header: React.FC<Props> = ({ project, views }) => {
 						</Link>
 					</div>
 
-					{/* <Link
-						href="/folio/case-studies"
-						className={`duration-200 hover:font-medium ${
-							isIntersecting
-								? " text-zinc-400 hover:text-zinc-100"
-								: "text-zinc-600 hover:text-zinc-900"
-						} `}
-					>
-						<ArrowLeft className="w-6 h-6 " />
-					</Link> */}
+					
 				</div>
 			</div>
 			<div className="container mx-auto relative isolate overflow-hidden  py-12 sm:py-16">
