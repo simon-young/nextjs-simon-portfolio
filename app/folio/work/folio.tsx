@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Eye, View } from "lucide-react";
 import { Suspense } from "react";
 import Image from "next/image";
+// import shimmer from "@/app/components/shimmer";
 
 type Props = {
 	work: Work;
@@ -10,25 +11,48 @@ type Props = {
 };
 
 export const Folio: React.FC<Props> = ({ work, views }) => {
+
+	const shimmer = (w: number, h: number) => 
+	`<svg width="${w}" height="${h}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+		<defs>
+			<linearGradient id="g">
+			<stop stop-color="#333" offset="20%" />
+			<stop stop-color="#222" offset="50%" />
+			<stop stop-color="#333" offset="70%" />
+			</linearGradient>
+		</defs>
+		<rect width="${w}" height="${h}" fill="#333" />
+		<rect id="r" width="${w}" height="${h}" fill="url(#g)" />
+		<animate xlink:href="#r" attributeName="x" from="-${w}" to="${w}" dur="1s" repeatCount="indefinite"  />
+	</svg>`
+
+	const toBase64 = (str: string) =>
+	typeof window === 'undefined'
+		? Buffer.from(str).toString('base64')
+		: window.btoa(str);
 	
 	return (
-		// <Link href={`/folio/work/${work.slug}`}>
 			<article className="p-4 md:p-4">
 
 				<div className={`flex bg-zinc-800 h-[250px] mb-4 rounded-lg overflow-hidden`}>
 				{work.image && (
-					<Suspense fallback={<p>Loading...</p>}>
+					
 						<div className={`relative flex bg-zinc-800 h-[auto] mb-0 rounded-lg overflow-hidden content-stretch w-full`}>
-							{ work.video ?
-							<video autoPlay loop className="object-cover">
-								<source src={work.video} type="video/webm" />
-							</video>
-							:
 							
-							<Image src={`${work.image}`} alt="top-work" fill className="relative object-cover" />
-							}
+								{ work.videowebm || work.videomp4 ?
+									<video muted autoPlay playsInline loop className="object-cover">
+										<source src={work.videowebm} type="video/webm" />
+										<source src={work.videomp4} type="video/mp4" />
+									</video>
+								
+								:
+								
+								<Image src={`${work.image}`} alt="top-work" placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`} fill className="relative object-cover" />
+								
+								}
+							
 						</div>
-					</Suspense>
+					
 				)}
                 </div>
 

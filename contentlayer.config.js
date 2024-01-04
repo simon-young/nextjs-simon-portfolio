@@ -45,7 +45,10 @@ export const Work = defineDocumentType(() => ({
 		image: {
 			type: "string",
 		},
-		video: {
+		videowebm: {
+			type: "string",
+		},
+		videomp4: {
 			type: "string",
 		}
 	},
@@ -81,7 +84,10 @@ export const CaseStudy = defineDocumentType(() => ({
 		image: {
 			type: "string",
 		},
-		video: {
+		videowebm: {
+			type: "string",
+		},
+		videomp4: {
 			type: "string",
 		}
 	},

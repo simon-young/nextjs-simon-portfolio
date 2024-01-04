@@ -16,16 +16,17 @@ export const Article: React.FC<Props> = ({ cases, views }) => {
 			{cases.image && (
 				<Suspense fallback={<p>Loading...</p>}>
 					<div className={`relative flex bg-zinc-800 h-[auto] mb-4 rounded-lg overflow-hidden`}>
-						{ cases.video ?
-						<video autoPlay loop>
-							<source src={cases.video} type="video/webm" />
+						{ cases.videowebm || cases.videomp4 ?
+						<video autoPlay muted playsInline loop>
+							<source src={cases.videowebm} type="video/webm" />
+							<source src={cases.videomp4} type="video/mp4" />
 						</video>
 						:
 						<Image src={`${cases.image}`} alt="top-cases" priority fill className="relative object-cover" />
 						}
 					</div>
                 </Suspense>
-			)};
+			)}
 
 				<div className="flex justify-between gap-2 items-center">
 					<span className="text-xs duration-1000 text-zinc-200 group-hover:text-white group-hover:border-zinc-200 drop-shadow-orange">
