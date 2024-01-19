@@ -11,7 +11,7 @@ type Props = {
 
 export const Article: React.FC<Props> = ({ cases, views }) => {
 	return (
-		<Link href={`/folio/case-studies/${cases.slug}`}>
+		<Link href={`/folio/UX-case-studies/${cases.slug}`}>
 			<article className="p-4 md:p-4">
 			{cases.image && (
 				<Suspense fallback={<p>Loading...</p>}>

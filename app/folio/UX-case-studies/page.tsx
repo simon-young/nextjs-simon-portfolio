@@ -1,10 +1,8 @@
 import Link from "next/link";
 import React, { Suspense } from "react";
 import { allCases } from "contentlayer/generated";
-import { Navigation } from "../../components/nav/nav";
 import { Card } from "../../components/card";
 import { Article } from "./article";
-import { Folio } from "./folio";
 import { Redis } from "@upstash/redis";
 import { Eye } from "lucide-react";
 import Image from 'next/image';
