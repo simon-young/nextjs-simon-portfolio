@@ -1,14 +1,68 @@
 ---
 title: FrogBox Scheduler
-description: FrogBox Scheduler is an app, for cricket clubs to be able to schedule streaming of their matches.
+description: FrogBox Scheduler is an app that allows cricket clubs the ability to schedule streaming of their matches.
 date: "2023-11-017"
 url: https://frogbox.live
 published: true
-repository: tbc
+
 image: /img/frogbox-color.jpg
 ---
 
+## Overview
 
 [![](/img/frogbox-color.jpg)]()
 
-Coming soon
+### Problem
+FrogBox is one of the most established cricket video capture tools in the market. However, the ability to schedule streams for the video capture tool is not a capability that is available to customers. i.e. no self service. A frustrating experience for customers, that have to contact staff and help-desks to ensure their cricket season is scheduled. This increases workload and availability hours for staff, resulting in higher costs for the business.
+
+### Solution
+We set out to completely overhaul the current scheduling process, looking to provide a self-service application that could work across regions. Intuitive to use with successful completion of core tasks. These changes impacted all facets of the current scheduling process, reducing head count availability across all hours of the day.
+
+### Role
+I led the UX research and design on this project and implemented a number of key deliverables including UI designs and a design system with the close help of the dev team. 
+
+I was also able to include front end development contributions when focusing on animated interactions. 
+
+Working closely with our product owner, end users, delivery success, and development team allowed us to ensure we caught the necessary requirements to produce a greater customer experience.
+
+## Research
+Beginning with identifying the experience problem at hand and asking the question, **“How do I develop enough understanding to truly empathise with my user?”**, I proceeded to gain an understanding through in-depth interviews with customers and technicians on our side. Plotting out a customer journey map, and identifying the experience ecosystem, to gain an understanding of the system and users. 
+
+[![](/img/cjm-fb.png)]()
+[![](/img/ecosystem-fb.jpg)]()
+
+### Key Insights
+ 1. UK, India, Australia used different calendar formats to schedule. e.g. Dates vs Rounds
+ 2. Key User Tasks could be defined as:
+  * Scheduling a match to stream
+  * Managing a scheduled match, to preview and start a stream.
+  * Viewing completed streams
+ 3. Users wanted to the ability to view their club fixture against what they had scheduled. 
+ 4. Not every match in a club’s fixture is streamed.
+
+ ## Define
+ With greater understanding of our users, we split our users into personas with different needs: 
+ - Kit owners / club owners
+ - Non kit owners
+ - Admin users
+
+ Additionally we started to map out acceptance criteria with our Product Owner and Delivery team. In combination with user, business and product insights we identified the design problems and opportunities that we looked to design for.
+
+[![](/img/define-fb.jpg)]()
+
+## Develop
+Beginning to ideate and design solutions to the experience problems we identified, I created information architecture and user-flow designs to map out an ideal experience. This led to design and prototypes that could be isolated for usability tests on any flow where there wasn’t data to confirm success rates and adoptability from the user. Further feedback received via customer walkthroughs.
+
+[![](/img/develop-1-fb.jpg)]()
+[![](/img/develop-1.2-fb.jpg)]()
+[![](/img/develop-2-fb.jpg)]()
+
+From the designs we started to build out a design system, to streamline development.
+[![](/img/develop-3-fb.jpg)]()
+[![](/img/develop-4-fb.jpg)]()
+[![](/img/develop-5-fb.jpg)]()
+
+## Deliver
+Implementation began with components being developed first by our dedicated frontend engineers, and isolated via Storybook. Where components could be tested, iterated, and built again. Any updates to the design system repository was automatically pushed out to the components via semantic versioning. This happened in conjunction with backend scaffolding. I would make updates to the design system and push to the repo to ensure up-to-date design and development integration. As of Jan-24 this is still being developed for first release.
+
+[![](/img/deliver-1-fb.jpg)]()

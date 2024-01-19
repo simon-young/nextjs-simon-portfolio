@@ -49,7 +49,7 @@ export default async function CasesPage() {
             UX Case Studies
           </h2>
           <p className="mt-4 text-zinc-400">
-            These case studies are from my time as UX Lead at Sportradar for the cricket division.
+            A collection of case studies from my employment as UX Lead at Sportradar for the cricket division.
           </p>
         </div>
 
