@@ -2,8 +2,7 @@ import "../global.css";
 import { Inter, Roboto_Mono } from "next/font/google";
 import LocalFont from "next/font/local";
 import { Metadata } from "next";
-import { Analytics } from "./components/analytics";
-
+import { GoogleAnalytics } from '@next/third-parties/google';
 export const metadata: Metadata = {
   title: {
     default: "thesimonyoung",
@@ -69,7 +68,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={[inter.variable, displaySans.variable, mono.variable].join(" ")}>
       <head>
-        <Analytics />
+      
       </head>
       <body
         className={`bg-black ${process.env.NODE_ENV === "development" ? "debug-screens" : undefined
@@ -77,6 +76,7 @@ export default function RootLayout({
       >
         {children}
       </body>
+      <GoogleAnalytics gaId="G-12KQNZ00Y1" />
     </html>
   );
 }
