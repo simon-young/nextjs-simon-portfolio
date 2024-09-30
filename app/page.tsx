@@ -26,7 +26,7 @@ export default function Home() {
       <Image src='/img/halo.svg' alt='background' width='992' height='992' className="absolute z-1 opacity-0 animate-fade-in-scale" />
 
       <h1 className="z-10 text-8xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-9xl md:text-[20em] whitespace-nowrap bg-clip-text">
-        SIMON YOUNG
+        SIMON YOUNG 
       </h1>
 
       <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
