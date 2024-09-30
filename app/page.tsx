@@ -21,7 +21,7 @@ export default function Home() {
         quantity={1000}
       />
 
-      <div className="absolute z-0 w-full h-[640px] opacity-0 animate-fade-in-hero delay-300 bg-[url('/img/hero-image.png')] bg-no-repeat mix-blend-difference bg-center bg-contain" />
+      {/* <div className="absolute z-0 w-full h-[640px] opacity-0 animate-fade-in-hero delay-300 bg-[url('/img/hero-image.png')] bg-no-repeat mix-blend-difference bg-center bg-contain" /> */}
 
       <Image src='/img/halo.svg' alt='background' width='992' height='992' className="absolute z-1 opacity-0 animate-fade-in-scale" />
 
@@ -32,7 +32,7 @@ export default function Home() {
       <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
 
       <div className="flex flex-col my-16 w-2/3 text-center animate-fade-in z-10">
-        <h2 className="font-mono italic text-lg text-zinc-100 bg-[rgba(24,24,27,0.9)] lg:top-[2em] rounded-lg p-4 ">
+        <h2 className="font-mono italic text-lg text-zinc-100 lg:top-[2em] rounded-lg p-4 ">
           👋 Hi I'm Simon a Product and UX Designer from Melbourne, Australia. <br />
           I'm the founder of Catchcry Design and End Hunt. <br />
           UX certified with NN/g. Previously at Sportradar and BurnsRED. 
