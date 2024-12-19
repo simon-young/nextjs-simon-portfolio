@@ -56,10 +56,10 @@ export default async function WorksPage() {
 
         {/* <div className="hidden w-full h-px md:block bg-zinc-800" /> */}
 
-        <div className="grid grid-cols-1 gap-4 mx-auto lg:mx-0 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 mx-auto lg:mx-0 md:grid-cols-2">
           <div className="grid grid-cols-1 gap-4">
             {sorted
-              .filter((_, i) => i % 3 === 0)
+              .filter((_, i) => i % 2 === 0)
               .map((work) => (
                 <Card key={work.slug}>
                   <Folio work={work} views={views[work.slug] ?? 0} />
@@ -68,14 +68,14 @@ export default async function WorksPage() {
           </div>
           <div className="grid grid-cols-1 gap-4">
             {sorted
-              .filter((_, i) => i % 3 === 1)
+              .filter((_, i) => i % 2 === 1)
               .map((work) => (
                 <Card key={work.slug}>
                   <Folio work={work} views={views[work.slug] ?? 0} />
                 </Card>
               ))}
           </div>
-          <div className="grid grid-cols-1 gap-4">
+          {/* <div className="grid grid-cols-1 gap-4">
             {sorted
               .filter((_, i) => i % 3 === 2)
               .map((work) => (
@@ -83,7 +83,7 @@ export default async function WorksPage() {
                   <Folio work={work} views={views[work.slug] ?? 0} />
                 </Card>
               ))}
-          </div>
+          </div> */}
         </div>
       </div>
   );

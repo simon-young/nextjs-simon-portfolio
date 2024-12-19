@@ -34,7 +34,7 @@ export const Folio: React.FC<Props> = ({ work, views }) => {
 	return (
 			<article className="p-4 md:p-4">
 
-				<div className={`flex bg-zinc-800 h-[250px] mb-4 rounded-lg overflow-hidden`}>
+				<div className={`flex bg-zinc-800 h-[400px] mb-4 rounded-lg overflow-hidden`}>
 				{work.image && (
 					
 						<div className={`relative flex bg-zinc-800 h-[auto] mb-0 rounded-lg overflow-hidden content-stretch w-full`}>
