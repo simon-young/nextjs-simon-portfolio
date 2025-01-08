@@ -3,6 +3,7 @@ import React, { Suspense } from "react";
 import { allWorks } from "contentlayer/generated";
 import { Navigation } from "../../components/nav/nav";
 import { Card } from "../../components/card";
+
 import { Article } from "./article";
 import { Folio } from "./folio";
 import { Redis } from "@upstash/redis";
@@ -10,6 +11,8 @@ import { Eye } from "lucide-react";
 import Loading from "./loading";
 import Image from 'next/image';
 import feature_image from '../../public/img/smiley-white.gif';
+import BasicTabs from "./basicTabs";
+
 
 const redis = Redis.fromEnv();
 
@@ -53,7 +56,8 @@ export default async function WorksPage() {
         </div>
 
         <div className="w-full h-px bg-zinc-800" />
-
+        {/* ToDo... implementing the tabs results in Redis errors. Need to investigate */}
+        {/* <BasicTabs /> */}
         {/* <div className="hidden w-full h-px md:block bg-zinc-800" /> */}
 
         <div className="grid grid-cols-1 gap-4 mx-auto lg:mx-0 md:grid-cols-2">
@@ -85,6 +89,7 @@ export default async function WorksPage() {
               ))}
           </div> */}
         </div>
+        
       </div>
   );
 }

@@ -34,7 +34,7 @@ export default function Home() {
       <div className="flex flex-col my-16 w-2/3 text-center animate-fade-in z-10">
         <h2 className="font-mono italic text-lg text-zinc-100 lg:top-[2em] rounded-lg p-4 ">
           👋 Hi I'm Simon a Product and UX Designer from Melbourne, Australia. <br />
-          I'm the founder of Catchcry Design and End Hunt. <br />
+          
           UX certified with NN/g. Previously at Sportradar and BurnsRED. 
         </h2>
         <div className="self-center p-4">
