@@ -10,9 +10,9 @@ export default function Home() {
     <div className="flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black">
 
       <nav className="my-16 animate-fade-in z-40">
-        <ul className="flex items-center justify-center gap-4">
+        <div className="flex items-center justify-center gap-4">
           <NavMenuHome />
-        </ul>
+        </div>
       </nav>
 
       <div className="hidden w-screen h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
@@ -35,7 +35,7 @@ export default function Home() {
         <h2 className="font-mono italic text-lg text-zinc-100 lg:top-[2em] rounded-lg p-4 ">
           👋 Hi I'm Simon a Product and UX Designer from Melbourne, Australia. <br />
           
-          UX certified with NN/g. Previously at Sportradar and BurnsRED. 
+          UX certified with NN/g. Previously at Sportradar, currently at BurnsRED. 
         </h2>
         <div className="self-center p-4">
           <Link href="https://www.nngroup.com/ux-certification/people/" className="cursor-pointer"><Image src={cert} height={84} alt="NN/g UX certificate" quality={100}/></Link>
